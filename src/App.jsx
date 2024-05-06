@@ -1,31 +1,23 @@
-import './App.css'
-import {useRef,useState } from 'react'
+import {useState, useEffect } from 'react'
 
+import HxHSplash from './HxHSplash.jsx'
 
-const animationKeyFrames = [
-  
-]
 
 function App() {
   const [altered, setAltered] = useState(false)
 
 
+  // on render, or some other condition, trigger the animated state
+  useEffect(() => {
+    setTimeout(() => {
+      setAltered(true)
+    }, 1000);
+  }, [])
+
+
   return (
     <div className='app'>
-      <div className="primary-wrapper example-one" onClick={() => setAltered(!altered)}>
-        <div className="drop-shadow-wrapper">
-          <div className={`x ${altered ? 'left-x' : "shmedium-x"}`}></div>
-          <div className={`x ${altered ? 'right-x-transform' : "shmedium-x"}`}></div>
-        </div>
-          <div className={`diamond ${altered ? 'visible-by-expansion' : ""}`}></div>
-      </div>
-      <div className="primary-wrapper example-two" onClick={() => setAltered(!altered)}>
-        <div className="drop-shadow-wrapper">
-          <div className={`x ${altered ? 'left-x' : "shmedium-x"}`}></div>
-          <div className={`x ${altered ? 'left-x flip-to-right' : "shmedium-x"}`}></div>
-        </div>
-          <div className={`diamond ${altered ? 'visible-fade-after' : ""}`}></div>
-      </div>
+      <HxHSplash altered={altered} setAltered={setAltered}/>
     </div>
   )
 }

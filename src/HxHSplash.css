@@ -9,6 +9,20 @@ html {
   padding: 0;
 }
 
+body {
+  opacity: 1;
+  animation: opacity0to1 .5s;
+}
+
+@keyframes opacity0to1 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 
 /* container for each example */
 .primary-wrapper{
