@@ -14,7 +14,8 @@ function App() {
     }, 1000);
   }, [])
 
-
+  // I tried to componentize it as much as i could
+  
   return (
     <div className='app'>
       <HxHSplash altered={altered} setAltered={setAltered}/>
